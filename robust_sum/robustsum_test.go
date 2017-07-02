@@ -10,7 +10,7 @@ import (
 func init() {
 }
 
-func TestGeom(t *testing.T) {
+func TestRobustSum(t *testing.T) {
 	g := goblin.Goblin(t)
 	g.Describe("RobustSum", func() {
 		g.It("test robust sum", func() {

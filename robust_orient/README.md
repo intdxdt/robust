@@ -4,7 +4,8 @@ excerpt from [here @mikolalysenko](https://github.com/mikolalysenko/robust-arith
 
 One of the most basic tasks in computational geometry is to classify wether a point `r` lies to the left or right of an oriented line defined by a pair of points `p` and `q`:  
 
-<img src="left-right.png" width="400px">
+<!-- <img src="left-right.png" width="400px"> -->
+![left right image](left-right.png)
 
 Naively, one might attempt to implement such a test using a determinant calculation, or [perp product](http://geomalgorithms.com/vector_products.html#2D-Perp-Product), like this:
 

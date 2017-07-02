@@ -5,7 +5,7 @@ import (
 	"testing"
 )
 
-func TestGeom(t *testing.T) {
+func TestTwoSum(t *testing.T) {
 	g := goblin.Goblin(t)
 	g.Describe("TwoSum", func() {
 		g.It("test fast two sum", func() {

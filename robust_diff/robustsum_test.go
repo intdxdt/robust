@@ -11,7 +11,7 @@ import (
 func init() {
 }
 
-func TestGeom(t *testing.T) {
+func TestRobustDiff(t *testing.T) {
 	g := goblin.Goblin(t)
 	g.Describe("RobustDiff", func() {
 		g.It("test robust diff", func() {
