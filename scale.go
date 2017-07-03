@@ -1,17 +1,14 @@
-package scale
+package robust
 
-import (
-	"robust/two"
-)
 
-func RobustScale(e []float64, scale float64) []float64{
-	return linearExpansion(e, scale)
+func Scale(e []float64, scale float64) []float64{
+	return linearExpansionScale(e, scale)
 }
 
-func linearExpansion(e []float64, scale float64) []float64{
+func linearExpansionScale(e []float64, scale float64) []float64{
 	var n = len(e)
 	if n == 1 {
-		var ts = two.Product(e[0], scale)
+		var ts = TwoProduct(e[0], scale)
 		if ts[0] != 0 {
 			return ts
 		}
@@ -21,15 +18,15 @@ func linearExpansion(e []float64, scale float64) []float64{
 	var q     = []float64{0.1, 0.1}
 	var t     = []float64{0.1, 0.1}
 	var count = 0
-	q = two.Product(e[0], scale)
+	q = TwoProduct(e[0], scale)
 	if q[0] != 0 {
 		g[count] = q[0]
 		count++
 	}
 	for i := 1; i < n; i++ {
-		t = two.Product(e[i], scale)
+		t = TwoProduct(e[i], scale)
 		var pq = q[1]
-		q = two.Sum(pq, t[0])
+		q = TwoSum(pq, t[0])
 		if q[0] != 0 {
 			g[count] = q[0]
 			count++

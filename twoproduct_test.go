@@ -1,4 +1,4 @@
-package two
+package robust
 
 import (
 	"math"
@@ -34,18 +34,18 @@ func init() {
 
 func TestTwoProduct(t *testing.T) {
 	g := goblin.Goblin(t)
-	g.Describe("Product", func() {
+	g.Describe("TwoProduct", func() {
 		g.It("test fast two product", func() {
 			g.Assert(
-				Product(1.0+math.Pow(2, -52), 1.0+math.Pow(2, -52))).Eql(
+				TwoProduct(1.0+math.Pow(2, -52), 1.0+math.Pow(2, -52))).Eql(
 				[]float64{math.Pow(2, -104), 1.0 + math.Pow(2, -51)})
 
 			for j := 0; j < len(testValues); j++ {
 				a := testValues[j]
 				g.Assert(a*a < math.Inf(1)).IsTrue()
-				g.Assert(Product(0, a)).Eql([]float64{0, 0})
-				g.Assert(Product(1, a)).Eql([]float64{0, a})
-				g.Assert(Product(-1, a)).Eql([]float64{0, -a})
+				g.Assert(TwoProduct(0, a)).Eql([]float64{0, 0})
+				g.Assert(TwoProduct(1, a)).Eql([]float64{0, a})
+				g.Assert(TwoProduct(-1, a)).Eql([]float64{0, -a})
 			}
 		})
 	})

@@ -1,4 +1,4 @@
-package orient
+package robust
 
 import (
 	"testing"
@@ -7,7 +7,7 @@ import (
 
 func TestRobustOrient(t *testing.T) {
 	g := goblin.Goblin(t)
-	g.Describe("Robust orientation", func() {
+	g.Describe("Orientation", func() {
 		g.It("test robust orient 2D", func() {
 			g.Assert(Orientation2d(ar(0.1, 0.1), ar(0.1, 0.1), ar(0.3, 0.7)) == 0).IsTrue()
 			g.Assert(Orientation2d(ar(0, 0), ar(-1e-64, 0), ar(0, 1)) > 0).IsTrue()
@@ -30,8 +30,4 @@ func TestRobustOrient(t *testing.T) {
 			g.Assert(Orientation3d(ar(0, 0, 0), ar(1e-64, 0, 0), ar(0, 0, 1), ar(0, 1e64, 0)) > 0).IsTrue()
 		})
 	})
-}
-
-func ar(v ...float64) []float64 {
-	return v
 }

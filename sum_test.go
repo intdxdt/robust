@@ -1,39 +1,36 @@
-package sum
+package robust
 
 import (
-	"github.com/franela/goblin"
-	"testing"
 	"math"
-	"fmt"
+	"testing"
+	"github.com/franela/goblin"
 )
 
-func init() {
-}
 
 func TestRobustSum(t *testing.T) {
 	g := goblin.Goblin(t)
-	g.Describe("RobustSum", func() {
+	g.Describe("Sum", func() {
 		g.It("test robust sum", func() {
-			g.Assert(RobustSum(
+			g.Assert(Sum(
 				ar(1, 64), ar(-1e-64, 1e64),
 			)).Eql(ar(-1e-64, 65, 1e64), )
 
-			g.Assert(RobustSum(ar(0), ar(0))).Eql(ar(0))
-			g.Assert(RobustSum(ar(0), ar(1))).Eql(ar(1))
+			g.Assert(Sum(ar(0), ar(0))).Eql(ar(0))
+			g.Assert(Sum(ar(0), ar(1))).Eql(ar(1))
 
-			g.Assert(RobustSum(
+			g.Assert(Sum(
 				ar(1, 1e64), ar(1e-64, 2),
 			)).Eql(ar(1e-64, 3, 1e64))
 
-			g.Assert(RobustSum(
+			g.Assert(Sum(
 				ar(1), ar(1e-64, 1e-16),
 			)).Eql(ar(1e-64, 1e-16, 1))
 
-			g.Assert(RobustSum(ar(0), ar(1))).Eql(ar(1))
+			g.Assert(Sum(ar(0), ar(1))).Eql(ar(1))
 
 			for i := -10; i <= 10; i++ {
 				for j := -10; j <= 10; j++ {
-					g.Assert(RobustSum(ar(float64(i)), ar(float64(j)))).Eql(ar(float64(i + j)))
+					g.Assert(Sum(ar(float64(i)), ar(float64(j)))).Eql(ar(float64(i + j)))
 				}
 			}
 
@@ -45,11 +42,11 @@ func TestRobustSum(t *testing.T) {
 				nois[i] = math.Pow(2, float64(-1000+53*i))
 				expect[i] = math.Pow(2, float64(-999+53*i))
 			}
-			x := RobustSum(nois, nois)
+			x := Sum(nois, nois)
 			g.Assert(x).Eql(expect)
 			// t.ok(validate(x))
 
-			g.Assert(RobustSum(ar(0), ar(1, 1e64))).Eql(ar(1, 1e64))
+			g.Assert(Sum(ar(0), ar(1, 1e64))).Eql(ar(1, 1e64))
 
 			// var s = [0]
 			// for(var i=0; i<1000; ++i) {
@@ -57,12 +54,6 @@ func TestRobustSum(t *testing.T) {
 			// t.ok(validate(s))
 			// }
 
-			fmt.Println(RobustSum(ar(0.1, 0.2), ar(0.3)))
-
 		})
 	})
-}
-
-func ar(v ...float64) []float64 {
-	return v
 }

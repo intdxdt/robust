@@ -1,9 +1,9 @@
-package two
+package robust
 
 const SPLITTER = 134217729.0//math.Pow(2, 27) + 1.0
 
 //two product
-func Product(a, b float64)[]float64{
+func TwoProduct(a, b float64)[]float64{
     x := a * b
 
     c := SPLITTER * a

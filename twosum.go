@@ -1,7 +1,7 @@
-package two
+package robust
 
 //fast two sum
-func Sum(a, b float64) []float64 {
+func TwoSum(a, b float64) []float64 {
 	x  := a + b
 	bv := x - a
 	av := x - bv

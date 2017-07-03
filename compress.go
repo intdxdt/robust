@@ -1,6 +1,6 @@
-package compress
+package robust
 
-func RobustCompress(e []float64) []float64{
+func Compress(e []float64) []float64{
 	return compressExpansion(e)
 }
 

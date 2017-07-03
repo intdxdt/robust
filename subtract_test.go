@@ -1,4 +1,4 @@
-package diff
+package robust
 
 import (
 	"math"
@@ -11,24 +11,22 @@ import (
 func init() {
 }
 
-func TestRobustDiff(t *testing.T) {
+func TestRobustSubtract(t *testing.T) {
 	g := goblin.Goblin(t)
-	g.Describe("RobustDiff", func() {
+	g.Describe("Subtract", func() {
 		g.It("test robust diff", func() {
 			var seed = rand.NewSource(time.Now().UnixNano())
 			var random = rand.New(seed)
 
-			g.Assert(RobustDiff(ar(1), ar(1))).Eql(ar(0))
+			g.Assert(Subtract(ar(1), ar(1))).Eql(ar(0))
 
 			var s = ar(0)
 			for i := 0; i < 100; i++ {
-				s = RobustDiff(s, ar(random.Float64()*math.Pow(2, random.Float64()*1000)))
+				s = Subtract(s, ar(random.Float64()*math.Pow(2, random.Float64()*1000)))
 				//t.ok(validate(s))
 			}
 		})
 	})
 }
 
-func ar(v ...float64) []float64 {
-	return v
-}
+

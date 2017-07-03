@@ -1,19 +1,18 @@
-package diff
+package robust
 
 import "math"
 
 //robust sum
-func RobustDiff(e, f []float64) []float64 {
-	return linear_expansion_diff(e, f)
+func Sum(e, f []float64) []float64 {
+	return linearExpansionSum(e, f)
 }
 
-//linear expansion
-
-func linear_expansion_diff(e, f []float64) []float64 {
+//linear expansion sum
+func linearExpansionSum(e, f []float64) []float64 {
 	var ne = len(e)
 	var nf = len(f)
 	if ne == 1 && nf == 1 {
-		return scalar_scalar(e[0], -f[0])
+		return scalarScalar(e[0], f[0])
 	}
 	var n = ne + nf
 	var g = make([]float64, n)
@@ -23,7 +22,7 @@ func linear_expansion_diff(e, f []float64) []float64 {
 	var abs   = math.Abs
 	var ei = e[eptr]
 	var ea = abs(ei)
-	var fi = -f[fptr]
+	var fi = f[fptr]
 	var fa = abs(fi)
 	var a, b float64
 	if ea < fa {
@@ -37,7 +36,7 @@ func linear_expansion_diff(e, f []float64) []float64 {
 		b = fi
 		fptr += 1
 		if fptr < nf {
-			fi = -f[fptr]
+			fi = f[fptr]
 			fa = abs(fi)
 		}
 	}
@@ -52,7 +51,7 @@ func linear_expansion_diff(e, f []float64) []float64 {
 		a = fi
 		fptr += 1
 		if fptr < nf {
-			fi = -f[fptr]
+			fi = f[fptr]
 			fa = abs(fi)
 		}
 	}
@@ -74,7 +73,7 @@ func linear_expansion_diff(e, f []float64) []float64 {
 			a = fi
 			fptr += 1
 			if fptr < nf {
-				fi = -f[fptr]
+				fi = f[fptr]
 				fa = abs(fi)
 			}
 		}
@@ -135,7 +134,7 @@ func linear_expansion_diff(e, f []float64) []float64 {
 		q1 = _x
 		fptr += 1
 		if fptr < nf {
-			fi = -f[fptr]
+			fi = f[fptr]
 		}
 	}
 	if q0 != 0 {
@@ -155,7 +154,7 @@ func linear_expansion_diff(e, f []float64) []float64 {
 }
 
 //scalar sum{ easy case{ add two scalars
-func scalar_scalar(a, b float64) []float64 {
+func scalarScalar(a, b float64) []float64 {
 	var x  = a + b
 	var bv = x - a
 	var av = x - bv

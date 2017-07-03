@@ -1,21 +1,12 @@
-package orient
+package robust
 
 import (
 	"math"
-	"robust/diff"
-	"robust/scale"
-	"robust/sum"
-	"robust/two"
 )
 
 const EPSILON = 1.1102230246251565e-16
 const ERRBOUND3 = (3.0 + 16.0*EPSILON) * EPSILON
 const ERRBOUND4 = (7.0 + 56.0*EPSILON) * EPSILON
-
-var rdiff = diff.RobustDiff
-var rsum = sum.RobustSum
-var rscale = scale.RobustScale
-var tprod = two.Product
 
 //orientation in 2d space
 func Orientation2d(a, b, c []float64) float64 {

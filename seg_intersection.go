@@ -1,18 +1,8 @@
-package segment
+package robust
 
-import (
-	"robust/sum"
-	"robust/scale"
-	"robust/compress"
-	"robust/two"
-)
 
-var tprod = two.Product
-var rsum = sum.RobustSum
-var rscale = scale.RobustScale
-
-//Robust intersection of line segements
-func RobustIntersection(a, b, c, d []float64) [][]float64 {
+//Robust segment intersection of line segements
+func SegIntersection(a, b, c, d []float64) [][]float64 {
 	return exactIntersect(a, b, c, d)
 }
 
@@ -28,7 +18,7 @@ func RobustIntersection(a, b, c, d []float64) [][]float64 {
 //
 func exactIntersect(a, b, c, d []float64) [][]float64 {
 
-	if !Intersects(a, b, c, d) {
+	if !SegIntersects(a, b, c, d) {
 		return [][]float64{{0}, {0}, {0}}
 	}
 
@@ -55,8 +45,6 @@ func exactIntersect(a, b, c, d []float64) [][]float64 {
 	)
 
 	return [][]float64{
-		compress.RobustCompress(nX),
-		compress.RobustCompress(nY),
-		compress.RobustCompress(denom),
+		Compress(nX), Compress(nY), Compress(denom),
 	}
 }
