@@ -1,4 +1,4 @@
-package robust_segseg
+package seg_intersects
 
 import (
 	ro "robust/robust_orient"

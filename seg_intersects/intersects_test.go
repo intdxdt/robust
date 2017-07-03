@@ -1,4 +1,4 @@
-package robust_segseg
+package seg_intersects
 
 import (
 	"github.com/franela/goblin"

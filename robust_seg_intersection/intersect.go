@@ -1,17 +1,23 @@
 package robust_seg_intersection
 
 import (
-	prod "robust/two_product"
-	sum "robust/robust_sum"
-	scale "robust/robust_scale"
-	comp "robust/robust_compress"
-	intersects "robust/robust_segseg"
+	"robust/two_product"
+	"robust/robust_sum"
+	"robust/robust_scale"
+	"robust/robust_compress"
+	"robust/seg_intersects"
 )
-var twoProduct      = prod.TwoProduct
-var robustSum       = sum.RobustSum
-var robustScale     = scale.RobustScale
-var compress        = comp.RobustCompress
-var robustIntersect = intersects.SegIntersects
+
+var twoProduct = two_product.TwoProduct
+var robustSum = robust_sum.RobustSum
+var robustScale = robust_scale.RobustScale
+var compress = robust_compress.RobustCompress
+var robustIntersect = seg_intersects.SegIntersects
+
+//Robust intersection of line segements
+func RobustIntersection(a, b, c, d []float64) [][]float64 {
+	return exactIntersect(a, b, c, d)
+}
 
 // Find solution to system of two linear equations
 //
@@ -23,14 +29,14 @@ var robustIntersect = intersects.SegIntersects
 //  | d[0]  d[1]   1 |  =  0
 //  |  x      y    1 |
 //
-func exactIntersect(a, b, c, d []float64)[][]float64 {
+func exactIntersect(a, b, c, d []float64) [][]float64 {
 
 	if !robustIntersect(a, b, c, d) {
 		return [][]float64{{0}, {0}, {0}}
 	}
 
-	var x1    = robustSum([]float64{c[1]}, []float64{-d[1]})
-	var y1    = robustSum([]float64{-c[0]}, []float64{d[0]})
+	var x1 = robustSum([]float64{c[1]}, []float64{-d[1]})
+	var y1 = robustSum([]float64{-c[0]}, []float64{d[0]})
 
 	var denom = robustSum(
 		robustSum(robustScale(y1, a[1]), robustScale(y1, -b[1])),
@@ -47,8 +53,8 @@ func exactIntersect(a, b, c, d []float64)[][]float64 {
 	)
 
 	var nY = robustSum(
-		robustSum(robustScale(w1, a[1]),  robustScale(w1, -b[1])),
-		robustSum(robustScale(w0, -c[1]), robustScale(w0,  d[1])),
+		robustSum(robustScale(w1, a[1]), robustScale(w1, -b[1])),
+		robustSum(robustScale(w0, -c[1]), robustScale(w0, d[1])),
 	)
 
 	return [][]float64{compress(nX), compress(nY), compress(denom)}
