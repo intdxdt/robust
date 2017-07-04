@@ -4,6 +4,7 @@ import (
 	"math"
 )
 
+
 const EPSILON = 1.1102230246251565e-16
 const ERRBOUND3 = (3.0 + 16.0*EPSILON) * EPSILON
 const ERRBOUND4 = (7.0 + 56.0*EPSILON) * EPSILON
@@ -54,8 +55,7 @@ func Orientation3d(a, b, c, d []float64) float64 {
 	var bdxady = bdx * ady
 
 	var det = adz*(bdxcdy-cdxbdy) +
-		bdz*(cdxady-adxcdy) +
-		cdz*(adxbdy-bdxady)
+		bdz*(cdxady-adxcdy) + cdz*(adxbdy-bdxady)
 
 	var permanent = (math.Abs(bdxcdy)+math.Abs(cdxbdy))*math.Abs(adz) +
 		(math.Abs(cdxady)+math.Abs(adxcdy))*math.Abs(bdz) +

@@ -1,10 +1,10 @@
 package robust
 
-import (
-	"math"
-)
+import "math"
 
+//Checks if two Segments Intersect
 func SegIntersects(a0, a1, b0, b1 []float64) bool {
+
 	var x0 = Orientation2d(a0, b0, b1)
 	var y0 = Orientation2d(a1, b0, b1)
 	if (x0 > 0 && y0 > 0) || (x0 < 0 && y0 < 0) {
@@ -21,12 +21,10 @@ func SegIntersects(a0, a1, b0, b1 []float64) bool {
 	if x0 == 0 && y0 == 0 && x1 == 0 && y1 == 0 {
 		return checkCollinear(a0, a1, b0, b1)
 	}
-
 	return true
 }
 
 func checkCollinear(a0, a1, b0, b1 []float64) bool {
-
 	for d := 0; d < 2; d++ {
 		var x0 = a0[d]
 		var y0 = a1[d]
@@ -42,6 +40,5 @@ func checkCollinear(a0, a1, b0, b1 []float64) bool {
 			return false
 		}
 	}
-
 	return true
 }

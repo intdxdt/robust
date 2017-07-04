@@ -1,7 +1,7 @@
 package main
 
 import (
-    ro "robust/orient"
+    "robust"
     "encoding/json"
     "math"
     "fmt"
@@ -38,7 +38,7 @@ func plotPredicate(pred func ([]float64, []float64, []float64 ) float64, out str
 
 func main(){
     plotPredicate(naiveLeftRight, "go-naive.js")
-    plotPredicate(ro.Orientation2d, "go-robust.js")
+    plotPredicate(robust.Orientation2d, "go-robust.js")
 }
 
 
