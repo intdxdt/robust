@@ -18,11 +18,11 @@ func TestRobustSubtract(t *testing.T) {
 			var seed = rand.NewSource(time.Now().UnixNano())
 			var random = rand.New(seed)
 
-			g.Assert(Subtract(ar(1), ar(1))).Eql(ar(0))
+			g.Assert(Subtract(af(1), af(1))).Eql(af(0))
 
-			var s = ar(0)
+			var s = af(0)
 			for i := 0; i < 100; i++ {
-				s = Subtract(s, ar(random.Float64()*math.Pow(2, random.Float64()*1000)))
+				s = Subtract(s, af(random.Float64()*math.Pow(2, random.Float64()*1000)))
 				//t.ok(validate(s))
 			}
 		})

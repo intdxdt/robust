@@ -11,18 +11,18 @@ func TestRobustDet(t *testing.T) {
 		g.It("test robust determinant", func() {
 			g.Assert(Det3([][]float64{
 				{1, 2, 3}, {3, 4, 5}, {6, 7, 8},
-			})).Eql(ar(0))
+			})).Eql(af(0))
 
 			g.Assert(Det2([][]float64{
 				{1, 2}, {3, 4},
-			})).Eql(ar(-2))
+			})).Eql(af(-2))
 
 			g.Assert(Det3([][]float64{
 				{1, 2, 3}, {3, 4, 5}, {6, 7, 8},
-			})).Eql(ar(0))
+			})).Eql(af(0))
 			g.Assert(Det2([][]float64{
 				{1, 2}, {3, 4},
-			})).Eql(ar(-2))
+			})).Eql(af(-2))
 		})
 	})
 }

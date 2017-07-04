@@ -25,8 +25,8 @@ func TestRobustSegSeg(t *testing.T) {
 			//
 			testPoint := func(a, b, x, y, w []float64) {
 
-				var d0 = Sum(ar(a[1]), ar(-b[1]))
-				var d1 = Sum(ar(a[0]), ar(-b[0]))
+				var d0 = Sum(af(a[1]), af(-b[1]))
+				var d1 = Sum(af(a[0]), af(-b[0]))
 				var d2 = Det2([][]float64{a, b})
 
 				//validate det.RobustDet2
@@ -85,15 +85,15 @@ func TestRobustSegSeg(t *testing.T) {
 			//Fuzz test
 			for i := 0; i < 100; i++ {
 				verify(
-					ar(random.Float64(), random.Float64()),
-					ar(random.Float64(), random.Float64()),
-					ar(random.Float64(), random.Float64()),
-					ar(random.Float64(), random.Float64()),
+					af(random.Float64(), random.Float64()),
+					af(random.Float64(), random.Float64()),
+					af(random.Float64(), random.Float64()),
+					af(random.Float64(), random.Float64()),
 				)
 			}
 
 
-			var isect = SegIntersection(ar(-1, 10), ar(-10, 1), ar(10, 0), ar(10, 10));
+			var isect = SegIntersection(af(-1, 10), af(-10, 1), af(10, 0), af(10, 10));
 			//no intersections
             g.Assert(isect[2][0]== 0).IsTrue()
 		})

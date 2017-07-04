@@ -12,25 +12,25 @@ func TestRobustSum(t *testing.T) {
 	g.Describe("Sum", func() {
 		g.It("test robust sum", func() {
 			g.Assert(Sum(
-				ar(1, 64), ar(-1e-64, 1e64),
-			)).Eql(ar(-1e-64, 65, 1e64), )
+				af(1, 64), af(-1e-64, 1e64),
+			)).Eql(af(-1e-64, 65, 1e64), )
 
-			g.Assert(Sum(ar(0), ar(0))).Eql(ar(0))
-			g.Assert(Sum(ar(0), ar(1))).Eql(ar(1))
-
-			g.Assert(Sum(
-				ar(1, 1e64), ar(1e-64, 2),
-			)).Eql(ar(1e-64, 3, 1e64))
+			g.Assert(Sum(af(0), af(0))).Eql(af(0))
+			g.Assert(Sum(af(0), af(1))).Eql(af(1))
 
 			g.Assert(Sum(
-				ar(1), ar(1e-64, 1e-16),
-			)).Eql(ar(1e-64, 1e-16, 1))
+				af(1, 1e64), af(1e-64, 2),
+			)).Eql(af(1e-64, 3, 1e64))
 
-			g.Assert(Sum(ar(0), ar(1))).Eql(ar(1))
+			g.Assert(Sum(
+				af(1), af(1e-64, 1e-16),
+			)).Eql(af(1e-64, 1e-16, 1))
+
+			g.Assert(Sum(af(0), af(1))).Eql(af(1))
 
 			for i := -10; i <= 10; i++ {
 				for j := -10; j <= 10; j++ {
-					g.Assert(Sum(ar(float64(i)), ar(float64(j)))).Eql(ar(float64(i + j)))
+					g.Assert(Sum(af(float64(i)), af(float64(j)))).Eql(af(float64(i + j)))
 				}
 			}
 
@@ -46,7 +46,7 @@ func TestRobustSum(t *testing.T) {
 			g.Assert(x).Eql(expect)
 			// t.ok(validate(x))
 
-			g.Assert(Sum(ar(0), ar(1, 1e64))).Eql(ar(1, 1e64))
+			g.Assert(Sum(af(0), af(1, 1e64))).Eql(af(1, 1e64))
 
 			// var s = [0]
 			// for(var i=0; i<1000; ++i) {

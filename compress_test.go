@@ -15,18 +15,18 @@ func TestRobustCompress(t *testing.T) {
 		g.It("test robust Compress", func() {
 			var seed = rand.NewSource(time.Now().UnixNano())
 			var random = rand.New(seed)
-			g.Assert(Compress(ar(0))).Eql(ar(0))
-			g.Assert(Compress(ar(1))).Eql(ar(1))
+			g.Assert(Compress(af(0))).Eql(af(0))
+			g.Assert(Compress(af(1))).Eql(af(1))
 
 			for i := 0; i < 10; i++ {
 				var h = random.Float64()
-				g.Assert(Compress(ar(h))).Eql(ar(h))
+				g.Assert(Compress(af(h))).Eql(af(h))
 				h = -h
-				g.Assert(Compress(ar(h))).Eql(ar(h))
+				g.Assert(Compress(af(h))).Eql(af(h))
 			}
 
-			g.Assert(Compress(ar(1, 2))).Eql(ar(3))
-			g.Assert(Compress(ar(math.Pow(2, -52), 1))).Eql(ar(1 + math.Pow(2, -52)))
+			g.Assert(Compress(af(1, 2))).Eql(af(3))
+			g.Assert(Compress(af(math.Pow(2, -52), 1))).Eql(af(1 + math.Pow(2, -52)))
 
 			verify := func(seq []float64) {
 				var rseq = Compress(seq[:len(seq):len(seq)])
