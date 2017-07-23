@@ -27,7 +27,7 @@ func main() {
 	res = robust.ConvexHull2D(coords)
 	fmt.Println(res)
 
-	or := robust.Orientation2d([]float64{0, 0}, []float64{0.5, 0.5}, []float64{0.7, 0.1})
+	or := robust.Orientation2D([]float64{0, 0}, []float64{0.5, 0.5}, []float64{0.7, 0.1})
 	fmt.Println(or)
 
 }

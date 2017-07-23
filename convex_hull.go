@@ -29,13 +29,13 @@ func ConvexHull2D(coordinates [][]float64) [][]float64 {
 	for _, pt := range coords {
 		// should go clockwise
 		// if counter or on line pop
-		for len(upper) > 1 && Orientation2d(upper[len(upper)-2], upper[len(upper)-1], pt) <= 0 {
+		for len(upper) > 1 && Orientation2D(upper[len(upper)-2], upper[len(upper)-1], pt) <= 0 {
 			pop(&upper)
 		}
 
 		// should go counter clock
 		// if clockwise or on line pop
-		for len(lower) > 1 && Orientation2d(lower[len(lower)-2], lower[len(lower)-1], pt) >= 0 {
+		for len(lower) > 1 && Orientation2D(lower[len(lower)-2], lower[len(lower)-1], pt) >= 0 {
 			pop(&lower)
 		}
 

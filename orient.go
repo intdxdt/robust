@@ -10,7 +10,10 @@ const ERRBOUND3 = (3.0 + 16.0*EPSILON) * EPSILON
 const ERRBOUND4 = (7.0 + 56.0*EPSILON) * EPSILON
 
 //orientation in 2d space
-func Orientation2d(a, b, c []float64) float64 {
+// < 0 if ccw - c is on left of segment(a, b)
+// > 0 if cw - c is on right of segment(a, b)
+// = 0 if a, b, and c are coplanar
+func Orientation2D(a, b, c []float64) float64 {
 	var l = (a[1] - c[1]) * (b[0] - c[0])
 	var r = (a[0] - c[0]) * (b[1] - c[1])
 	var det = l - r
@@ -37,7 +40,7 @@ func Orientation2d(a, b, c []float64) float64 {
 	return orientation3Exact(a, b, c)
 }
 
-func Orientation3d(a, b, c, d []float64) float64 {
+func Orientation3D(a, b, c, d []float64) float64 {
 	var adx = a[0] - d[0]
 	var bdx = b[0] - d[0]
 	var cdx = c[0] - d[0]

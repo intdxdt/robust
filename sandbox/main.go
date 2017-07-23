@@ -38,7 +38,7 @@ func plotPredicate(pred func ([]float64, []float64, []float64 ) float64, out str
 
 func main(){
     plotPredicate(naiveLeftRight, "go-naive.js")
-    plotPredicate(robust.Orientation2d, "go-robust.js")
+    plotPredicate(robust.Orientation2D, "go-robust.js")
 }
 
 

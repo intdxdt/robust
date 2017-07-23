@@ -5,14 +5,14 @@ import "math"
 //Checks if two Segments Intersect
 func SegIntersects(a0, a1, b0, b1 []float64) bool {
 
-	var x0 = Orientation2d(a0, b0, b1)
-	var y0 = Orientation2d(a1, b0, b1)
+	var x0 = Orientation2D(a0, b0, b1)
+	var y0 = Orientation2D(a1, b0, b1)
 	if (x0 > 0 && y0 > 0) || (x0 < 0 && y0 < 0) {
 		return false
 	}
 
-	var x1 = Orientation2d(b0, a0, a1)
-	var y1 = Orientation2d(b1, a0, a1)
+	var x1 = Orientation2D(b0, a0, a1)
+	var y1 = Orientation2D(b1, a0, a1)
 	if (x1 > 0 && y1 > 0) || (x1 < 0 && y1 < 0) {
 		return false
 	}
