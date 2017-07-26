@@ -1,7 +1,7 @@
 package robust
 
 
-//Robust segment intersection of line segements
+//Robust segment intersection of line segments
 func SegIntersection(a, b, c, d []float64) [][]float64 {
 	return exactIntersect(a, b, c, d)
 }
