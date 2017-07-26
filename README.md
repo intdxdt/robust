@@ -46,3 +46,7 @@ In addition to looking absolutely crazy, the following things are wrong with thi
 
 1.  Many points are incorrectly classified as being on the line.
 2.  Some points near the boundary are incorrectly classified as being to the left or right of the line.
+
+
+## Credits
+`mikolalysenko` js-packages and [notes](https://github.com/mikolalysenko/robust-arithmetic-notes) 
