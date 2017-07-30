@@ -8,7 +8,7 @@ import (
 
 func TestRobustScale(t *testing.T) {
 	g := goblin.Goblin(t)
-	g.Describe("Sclae", func() {
+	g.Describe("Scale", func() {
 		g.It("test robust scale", func() {
 			g.Assert(Scale(af(4), 2)).Eql(af(8))
 			g.Assert(Scale(af(1, 1e64), 2)).Eql(af(2, 2e64))

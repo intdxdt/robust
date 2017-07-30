@@ -18,15 +18,9 @@ func TestRobustSum(t *testing.T) {
 			g.Assert(Sum(af(0), af(0))).Eql(af(0))
 			g.Assert(Sum(af(0), af(1))).Eql(af(1))
 
-			g.Assert(Sum(
-				af(1, 1e64), af(1e-64, 2),
-			)).Eql(af(1e-64, 3, 1e64))
+			g.Assert(Sum(af(1, 1e64), af(1e-64, 2), )).Eql(af(1e-64, 3, 1e64))
 
-			g.Assert(Sum(
-				af(1), af(1e-64, 1e-16),
-			)).Eql(af(1e-64, 1e-16, 1))
-
-			g.Assert(Sum(af(0), af(1))).Eql(af(1))
+			g.Assert(Sum(af(1), af(1e-64, 1e-16), )).Eql(af(1e-64, 1e-16, 1))
 
 			for i := -10; i <= 10; i++ {
 				for j := -10; j <= 10; j++ {
