@@ -1,8 +1,8 @@
 package dbits
 
 import (
-	"testing"
 	"math"
+	"testing"
 	"github.com/franela/goblin"
 )
 

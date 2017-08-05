@@ -3,6 +3,7 @@ package robust
 import (
 	"math"
 	"testing"
+	"robust/validate_seq"
 	"github.com/franela/goblin"
 )
 
@@ -28,6 +29,8 @@ func TestRobustSum(t *testing.T) {
 				}
 			}
 
+			validate := validate_seq.ValidateSequence
+
 			// t.ok(validate(sum([ 5.711861227349496e-133, 1e-116 ], [ 5.711861227349496e-133, 1e-116 ])))
 
 			nois := make([]float64, 10)
@@ -38,7 +41,7 @@ func TestRobustSum(t *testing.T) {
 			}
 			x := Sum(nois, nois)
 			g.Assert(x).Eql(expect)
-			// t.ok(validate(x))
+			g.Assert(validate(x))
 
 			g.Assert(Sum(af(0), af(1, 1e64))).Eql(af(1, 1e64))
 
