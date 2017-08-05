@@ -9,7 +9,9 @@ import (
 func TestRobustProduct(t *testing.T) {
 	g := goblin.Goblin(t)
 	g.Describe("Product", func() {
-		var pow2 = func (n float64) float64 { return math.Pow(2, n) }
+		var pow2 = func(n float64) float64 {
+			return math.Pow(2, n)
+		}
 
 		g.It("test robust product", func() {
 			for i := -20; i <= 20; i++ {
@@ -28,4 +30,3 @@ func TestRobustProduct(t *testing.T) {
 		})
 	})
 }
-

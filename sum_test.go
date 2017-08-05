@@ -5,13 +5,16 @@ import (
 	"testing"
 	"robust/validate_seq"
 	"github.com/franela/goblin"
+	"time"
+	"math/rand"
 )
-
 
 func TestRobustSum(t *testing.T) {
 	g := goblin.Goblin(t)
 	g.Describe("Sum", func() {
 		g.It("test robust sum", func() {
+			var seed = rand.NewSource(time.Now().UnixNano())
+			var random = rand.New(seed)
 			g.Assert(Sum(
 				af(1, 64), af(-1e-64, 1e64),
 			)).Eql(af(-1e-64, 65, 1e64), )
@@ -29,9 +32,10 @@ func TestRobustSum(t *testing.T) {
 				}
 			}
 
-			validate := validate_seq.ValidateSequence
-
-			// t.ok(validate(sum([ 5.711861227349496e-133, 1e-116 ], [ 5.711861227349496e-133, 1e-116 ])))
+			g.Assert(validate_seq.ValidateSequence(Sum(
+				[]float64{5.711861227349496e-133, 1e-116},
+				[]float64{5.711861227349496e-133, 1e-116},
+			)))
 
 			nois := make([]float64, 10)
 			expect := make([]float64, 10)
@@ -41,15 +45,15 @@ func TestRobustSum(t *testing.T) {
 			}
 			x := Sum(nois, nois)
 			g.Assert(x).Eql(expect)
-			g.Assert(validate(x))
+			g.Assert(validate_seq.ValidateSequence(x))
 
 			g.Assert(Sum(af(0), af(1, 1e64))).Eql(af(1, 1e64))
 
-			// var s = [0]
-			// for(var i=0; i<1000; ++i) {
-			// s = sum(s, [Math.random() * Math.pow(2, Math.random()*1800-900)])
-			// t.ok(validate(s))
-			// }
+			var s = []float64{0}
+			for i := 0; i < 1000; i++ {
+				s = Sum(s, []float64{random.Float64() * math.Pow(2, random.Float64()*1800-900)})
+				g.Assert(validate_seq.ValidateSequence(s))
+			}
 
 		})
 	})

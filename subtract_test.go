@@ -6,6 +6,7 @@ import (
 	"testing"
 	"math/rand"
 	"github.com/franela/goblin"
+	"robust/validate_seq"
 )
 
 func init() {
@@ -23,7 +24,7 @@ func TestRobustSubtract(t *testing.T) {
 			var s = af(0)
 			for i := 0; i < 100; i++ {
 				s = Subtract(s, af(random.Float64()*math.Pow(2, random.Float64()*1000)))
-				//t.ok(validate(s))
+				g.Assert(validate_seq.ValidateSequence(s))
 			}
 		})
 	})

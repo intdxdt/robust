@@ -5,6 +5,7 @@ import (
 	"testing"
 	"math/rand"
 	"github.com/franela/goblin"
+	"robust/validate_seq"
 )
 
 
@@ -30,21 +31,21 @@ func TestRobustSegSeg(t *testing.T) {
 				var d2 = Det2([][]float64{a, b})
 
 				//validate det.RobustDet2
-				//g.Assert(validate(d2)).IsTrue()
+				g.Assert(validate_seq.ValidateSequence(d2)).IsTrue()
 
 				var p0 = Product(x, d0)
 				var p1 = Product(y, d1)
 				var p2 = Product(w, d2)
 				//validate p0
-				//t.ok(validate(p0))
+				g.Assert(validate_seq.ValidateSequence(p0)).IsTrue()
 				//validate p1
-				//t.ok(validate(p1))
+				g.Assert(validate_seq.ValidateSequence(p1)).IsTrue()
 				//validate p2
-				//t.ok(validate(p2))
+				g.Assert(validate_seq.ValidateSequence(p2)).IsTrue()
 
 				var s = Sum(Subtract(p0, p1), p2)
 				//validate s
-				//t.ok(validate(s))
+				g.Assert(validate_seq.ValidateSequence(s)).IsTrue()
 				//check point on line
 				g.Assert(Cmp(s, []float64{0}) == 0).IsTrue()
 			}
@@ -52,11 +53,11 @@ func TestRobustSegSeg(t *testing.T) {
 			verify := func(a, b, c, d []float64) {
 				var x = SegIntersection(a, b, c, d)
 				//validate x
-				//t.ok(validate(x[0]))
+				g.Assert(validate_seq.ValidateSequence(x[0])).IsTrue()
 				//validate y
-				//t.ok(validate(x[1]))
+				g.Assert(validate_seq.ValidateSequence(x[1])).IsTrue()
 				//validate w
-				//t.ok(validate(x[2]))
+				g.Assert(validate_seq.ValidateSequence(x[2])).IsTrue()
 				testPoint(a, b, x[0], x[1], x[2])
 				testPoint(c, d, x[0], x[1], x[2])
 
@@ -69,11 +70,11 @@ func TestRobustSegSeg(t *testing.T) {
 								p[h^1][r], p[h^1][r^1],
 							)
 							//validate x
-							//t.ok(validate(y[0]))
+							g.Assert(validate_seq.ValidateSequence(y[0])).IsTrue()
 							//validate y
-							//t.ok(validate(y[1]))
+							g.Assert(validate_seq.ValidateSequence(y[1])).IsTrue()
 							//validate w
-							//t.ok(validate(y[2]))
+							g.Assert(validate_seq.ValidateSequence(y[2])).IsTrue()
 							//check x
 							g.Assert(Cmp(Product(y[0], x[2]), Product(x[0], y[2])) == 0).IsTrue()
 							//check y
@@ -93,7 +94,7 @@ func TestRobustSegSeg(t *testing.T) {
 			}
 
 
-			var isect = SegIntersection(af(-1, 10), af(-10, 1), af(10, 0), af(10, 10));
+			var isect = SegIntersection(af(-1, 10), af(-10, 1), af(10, 0), af(10, 10))
 			//no intersections
             g.Assert(isect[2][0]== 0).IsTrue()
 		})
