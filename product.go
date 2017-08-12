@@ -1,6 +1,6 @@
 package robust
 
-//Robust TwoProduct
+//Robust Product
 func Product(a, b []float64) []float64 {
 	if len(a) == 1 {
 		return Scale(b, a[0])
