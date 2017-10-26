@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"robust"
+	"github.com/intdxdt/robust"
 	"time"
 	"math/rand"
 )

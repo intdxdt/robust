@@ -1,7 +1,7 @@
 package validate_seq
 
 import (
-	to "robust/test_overlap"
+	to "github.com/intdxdt/robust/test_overlap"
 	"math"
 )
 

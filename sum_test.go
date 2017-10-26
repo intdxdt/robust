@@ -2,11 +2,11 @@ package robust
 
 import (
 	"math"
-	"testing"
-	"robust/validate_seq"
-	"github.com/franela/goblin"
 	"time"
+	"testing"
 	"math/rand"
+	"github.com/franela/goblin"
+	"github.com/intdxdt/robust/validate_seq"
 )
 
 func TestRobustSum(t *testing.T) {

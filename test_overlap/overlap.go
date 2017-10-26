@@ -1,8 +1,8 @@
 package test_overlap
 
 import (
-	"robust/twiddle"
-	"robust/dbits"
+	"github.com/intdxdt/twiddle"
+	"github.com/intdxdt/dbits"
 	"math"
 )
 

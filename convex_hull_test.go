@@ -1,10 +1,10 @@
 package robust
 
 import (
-	"testing"
-	"github.com/franela/goblin"
 	"time"
+	"testing"
 	"math/rand"
+	"github.com/franela/goblin"
 )
 
 func TestConvexHull(t *testing.T) {

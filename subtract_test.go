@@ -6,7 +6,7 @@ import (
 	"testing"
 	"math/rand"
 	"github.com/franela/goblin"
-	"robust/validate_seq"
+	"github.com/intdxdt/robust/validate_seq"
 )
 
 func init() {

@@ -1,7 +1,7 @@
 package main
 
 import (
-    "robust"
+    "github.com/intdxdt/robust"
     "encoding/json"
     "math"
     "fmt"
