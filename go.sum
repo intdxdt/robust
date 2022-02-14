@@ -1,2 +1,6 @@
 github.com/franela/goblin v0.0.0-20211003143422-0a4f594942bf h1:NrF81UtW8gG2LBGkXFQFqlfNnvMt9WdB46sfdJY4oqc=
 github.com/franela/goblin v0.0.0-20211003143422-0a4f594942bf/go.mod h1:VzmDKDJVZI3aJmnRI9VjAn9nJ8qPPsN1fqzr9dqInIo=
+github.com/intdxdt/dbits v1.0.0 h1:USgnDf5jmdbKUd/js6o4Kz1EwuOEYZgGgMXnAAv5EMs=
+github.com/intdxdt/dbits v1.0.0/go.mod h1:qWY/+f1r0hePqFtMvbb1UnM5qWb5ppGmi+2XgJ1VWVQ=
+github.com/intdxdt/twiddle v1.0.0 h1:hoLZlX6djIgyXyyylrCPDseaGOrrNYPCKahwdk2F/0M=
+github.com/intdxdt/twiddle v1.0.0/go.mod h1:SOM5zV/wCJBghQXBBoOEqP7r6EqhVqs8E0ohktuN4qo=
