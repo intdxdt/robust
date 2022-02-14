@@ -1,13 +1,12 @@
 package robust
 
 import (
-	"time"
-	"math"
-	"testing"
-	"math/rand"
 	"github.com/franela/goblin"
+	"math"
+	"math/rand"
+	"testing"
+	"time"
 )
-
 
 func TestRobustCompress(t *testing.T) {
 	g := goblin.Goblin(t)

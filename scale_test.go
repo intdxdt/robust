@@ -1,10 +1,9 @@
 package robust
 
 import (
-	"testing"
 	"github.com/franela/goblin"
+	"testing"
 )
-
 
 func TestRobustScale(t *testing.T) {
 	g := goblin.Goblin(t)

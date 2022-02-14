@@ -2,27 +2,27 @@ package robust
 
 import "sort"
 
-//Computes the convex hull of a set of 2D points.
+//ConvexHull2D - Computes the convex hull of a set of 2D points.
 //Input   : an sequence of (x, y) pairs representing the input points.
 //Output  : a of vertices of the convex hull in counter-clockwise order,
 //  starting from the vertex with the lexicographically smallest coordinates.
 //Ref: Andrew's monotone chain algorithm. O(n log n) complexity.
 func ConvexHull2D(coordinates [][]float64) [][]float64 {
-	upper   := make([][]float64, 0)
-	lower   := make([][]float64, 0)
-	coords  := make([][]float64, len(coordinates))
+	upper := make([][]float64, 0)
+	lower := make([][]float64, 0)
+	coords := make([][]float64, len(coordinates))
 
 	copy(coords, coordinates)
 
 	n := len(coords)
 	if n < 3 {
-	    if n == 2 &&
-		    coords[0][0] == coords[1][0] &&
-		    coords[0][1] == coords[1][1] {
-	      return [][]float64{coords[0]}
-	    }
-	    return coords
-    }
+		if n == 2 &&
+			coords[0][0] == coords[1][0] &&
+			coords[0][1] == coords[1][1] {
+			return [][]float64{coords[0]}
+		}
+		return coords
+	}
 
 	sort.Sort(coordSlice(coords))
 
@@ -59,8 +59,10 @@ func ConvexHull2D(coordinates [][]float64) [][]float64 {
 }
 
 type coordSlice [][]float64
-func (o coordSlice) Len() int { return len(o) }
+
+func (o coordSlice) Len() int      { return len(o) }
 func (o coordSlice) Swap(i, j int) { o[i], o[j] = o[j], o[i] }
+
 //2d sort
 func (o coordSlice) Less(i, j int) bool {
 	a, b := o[i], o[j]

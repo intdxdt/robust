@@ -1,10 +1,9 @@
 package robust
 
 import (
-	"testing"
 	"github.com/franela/goblin"
+	"testing"
 )
-
 
 func TestRobustIntersects(t *testing.T) {
 	g := goblin.Goblin(t)
@@ -30,4 +29,3 @@ func TestRobustIntersects(t *testing.T) {
 		})
 	})
 }
-

@@ -1,8 +1,8 @@
 package robust
 
 import (
-	"testing"
 	"github.com/franela/goblin"
+	"testing"
 )
 
 func TestTwoSum(t *testing.T) {

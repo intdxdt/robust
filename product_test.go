@@ -1,9 +1,9 @@
 package robust
 
 import (
+	"github.com/franela/goblin"
 	"math"
 	"testing"
-	"github.com/franela/goblin"
 )
 
 func TestRobustProduct(t *testing.T) {

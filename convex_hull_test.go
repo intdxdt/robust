@@ -1,10 +1,10 @@
 package robust
 
 import (
-	"time"
-	"testing"
-	"math/rand"
 	"github.com/franela/goblin"
+	"math/rand"
+	"testing"
+	"time"
 )
 
 func TestConvexHull(t *testing.T) {
@@ -14,7 +14,7 @@ func TestConvexHull(t *testing.T) {
 			var seed = rand.NewSource(time.Now().UnixNano())
 			var random = rand.New(seed)
 			var coords = [][]float64{{0, 0}, {1, 1}, {1, 0}, {0.5, 0.5}, {0.7, 0.1}}
-			g.Assert(ConvexHull2D(coords)).Eql([][]float64{ {0, 0},  {1, 0}, {1, 1}})
+			g.Assert(ConvexHull2D(coords)).Eql([][]float64{{0, 0}, {1, 0}, {1, 1}})
 
 			coords = [][]float64{{0, 0}, {1, 0}, {1, 1}, {0, 1}}
 			g.Assert(ConvexHull2D(coords)).Eql([][]float64{{0, 0}, {1, 0}, {1, 1}, {0, 1}})
@@ -30,7 +30,7 @@ func TestConvexHull(t *testing.T) {
 				coords = append(coords, af(1, random.Float64()))
 			}
 
-			g.Assert(ConvexHull2D(coords)).Eql([][]float64{ {0, 0},  {1, 0}, {1, 1}, {0, 1}})
+			g.Assert(ConvexHull2D(coords)).Eql([][]float64{{0, 0}, {1, 0}, {1, 1}, {0, 1}})
 			//Degenerate cases
 			g.Assert(ConvexHull2D([][]float64{{0, 0}})).Eql([][]float64{{0, 0}})
 			g.Assert(ConvexHull2D([][]float64{})).Eql([][]float64{})
