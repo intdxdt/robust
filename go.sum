@@ -1,10 +1,6 @@
 github.com/franela/goblin v0.0.0-20211003143422-0a4f594942bf h1:NrF81UtW8gG2LBGkXFQFqlfNnvMt9WdB46sfdJY4oqc=
 github.com/franela/goblin v0.0.0-20211003143422-0a4f594942bf/go.mod h1:VzmDKDJVZI3aJmnRI9VjAn9nJ8qPPsN1fqzr9dqInIo=
-github.com/intdxdt/dbits v1.0.0 h1:USgnDf5jmdbKUd/js6o4Kz1EwuOEYZgGgMXnAAv5EMs=
-github.com/intdxdt/dbits v1.0.0/go.mod h1:qWY/+f1r0hePqFtMvbb1UnM5qWb5ppGmi+2XgJ1VWVQ=
-github.com/intdxdt/dbits v1.0.2 h1:6+9+xn8MHGWD6bpjtyeo4UJ3lEsafTtIEz0NVq13qLQ=
-github.com/intdxdt/dbits v1.0.2/go.mod h1:I5ICUsGVeXC/RSxK0CLsWt+9UPLq/sQo55GsJzOG6WY=
-github.com/intdxdt/twiddle v1.0.0 h1:hoLZlX6djIgyXyyylrCPDseaGOrrNYPCKahwdk2F/0M=
-github.com/intdxdt/twiddle v1.0.0/go.mod h1:SOM5zV/wCJBghQXBBoOEqP7r6EqhVqs8E0ohktuN4qo=
-github.com/intdxdt/twiddle v1.0.2 h1:T4F7rO18mboiGl2oZ1aJmkXukRtHRIhI/82E/nPnQp8=
-github.com/intdxdt/twiddle v1.0.2/go.mod h1:KdjoNnWd3ftAqvwFDwHGTWHQ/CfKShr4xeFE+YWHmlo=
+github.com/intdxdt/dbits v1.0.3 h1:uHD/Xvwyk38uDO4/gZcx5SA8W3Ep9nPtGdG1x1pL2VQ=
+github.com/intdxdt/dbits v1.0.3/go.mod h1:V5ErUAG+a7WrVPQqQAbgbAxiYsPYol0bY8C5vOFNExw=
+github.com/intdxdt/twiddle v1.0.3 h1:wHvcoSmaLbF60xr4QKbTaNt41QdBKSSS/bgJ2F88/RY=
+github.com/intdxdt/twiddle v1.0.3/go.mod h1:nedQK9BQeYjtKSRHlDUBb1y3i+IsnjgIiFurT42J2rM=
